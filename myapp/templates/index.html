@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sharma</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script src="https://kit.fontawesome.com/268f7940b1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="Home"><img src="{% static 'logo.jpg' %}"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="Home">Our Services</a></li>
+                    <li><a href="Home">Why Choose Us</a></li>
+                    <li><a href="Home">Languages<i class="fa-solid fa-caret-down"></i></a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="Home">English</a></li>
+                                <li><a href="Home">Deutsch</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="Home">Contact Us</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="Text">
+            <h1>An IT Service Company</h1>
+            <p>We're a Full Range Software Service and development Company. "We don't only write code, We solve your rocket science problem. We build business software to minimize workload and maximum success."</p>
+        </div>
+
+    </section>
+
+    <section class="services">
+        <h1>Our Services</h1>
+        <p>We are a factory of softwere, building from small component to enterprise system.</p>
+        <div class="row">
+            {% for serv in service %}
+            <div class="column">
+                <h3>{{serv.title}}</h3>
+                <p>{{serv.description}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row">
+            {% for servs in service1 %}
+            <div class="column">
+                <h3>{{servs.title}}</h3>
+                <p>{{servs.description}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row1">
+            {% for serv in service2 %}
+            <div class="column1">
+                <h3>{{serv.title}}</h3>
+                <p>{{serv.description}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+{% for detail in details %}
+    <section class="import">
+        <div class="row5">
+            <div class="column5">
+                <h1>{{detail.title}}</h1>
+                <p>{{detail.description}}</p>
+                <div class="tesai">
+                    <ul>
+                        <li>{{detail.a}}</li>
+                        <li>{{detail.b}}</li>
+                    </ul>
+                </div>
+                <div class="tesai">
+                    <ul>
+                        <li>{{detail.c}}</li>
+                        <li>{{detail.d}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column5">
+                <img src="{{detail.image.url}}">
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <section class="reason">
+        <div class="whous">
+            <div class="left">
+                <div class="column11">
+                    <h1 class="why-us">Why Choose Us</h1>
+                    <p>We are a team of young and experienced software engineers that are willing to make products in new and creative ways. We focus on operating in new tech stacks as per the need of the project and its scalability. We always ought to give as possible uniqueness to projects so that they can shine in markets.</p>
+                </div>
+                <div class="column10">
+                    <h1>Who We Are</h1>
+                    <p>We are a group of technology enthusiasts developing mature and scalable applications used in multiple sectors. We are located in multiple time zones so that your availability is fully with you.</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="column10">
+                    <h1>Our Mission</h1>
+                    <p>Our purpose is to provide quality of service to end businesses and users at very good pricing. We are committed to green energy and environment protection. By 2026 We promise to use fully green energy for our whole flow of company and services.</p>
+                </div>
+
+                <div class="column10">
+                    <h1>TechStack</h1>
+                    <p>We always use updated versions of tools for development so that it won't affect our security. Our Techstack includes ReactJs and Nodejs in Javascript and Typescript, C, Java, Kotlin, Flutter, Swift, SQL, Mongodb, Redis, Docker, kubernetes.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <form class="contact" method="post" class="was_validated">
+        <h1>Contact Us</h1>
+        {% csrf_token %}
+        <input type="text" name="fullname" placeholder=" Full Name" required>
+        <input type="email" name="email" placeholder=" Email" required>
+        <input type="number" name="number" placeholder=" Phone Number" required>
+        <textarea name="message" placeholder="Write Your Message" required></textarea><br>
+        <input class="submit" type="submit" name="Send Message    " >
+        </div>
+    </form>
+
+
+    <section class="footer">
+        <div class="roow">
+            <div class="column20">
+                <a href="Home"><img src="{% static 'logo.jpg' %}"></a>
+                <p>Take risks to live up to your dream or get tempted your whole life for not taking it. Here where every dream converts to success.</p>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+
+            <div class="column20">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="Home" >Home </a></li>
+                <li><a href="Home" >Services</a></li>
+                <li><a href="Home" >Why Choose Us</a></li>
+            </ul>
+            </div>
+
+            <div class="column20">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="Home" >Contact Us</a></li>
+                <li><a href="Home" >Faq</a></li>
+                    <li><a href="Home" >Privacy Policies</a></li>
+                <li><a href="Home" >Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="column20">
+            <h4>Get In Touch</h4>
+                <div class="aeo">
+                    <div class="sub-row">
+                        <i class="fa-solid fa-house"></i>
+                        <span>
+                        <p>Dhumbarahi,Kathmandu</p>
+                        </span>
+                    </div>
+                    <div class="sub-row">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>
+                        <p>+9779847656469</p>
+                        </span>
+                    </div>
+                    <div class="sub-row">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>
+                        <p>support@roboltech.com</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section class="copyright">
+        <p>Copyright © Fire. All Right reserved by <a class="abcd" href="Home">Fire</a></p>
+    </section>
+
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+    navLinks.style.right ="0";
+    }
+    function hideMenu(){
+    navLinks.style.right ="-200px"
+    }
+</script>
+</body>
+</html>
